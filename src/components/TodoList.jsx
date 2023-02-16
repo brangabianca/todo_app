@@ -19,7 +19,11 @@ function TodoList() {
 	};
 
 	const handleCompleteTodo = (indexTodo) => {
-		const completedTodo = { name: indexTodo, completed: true };
+		const newTodoList = todoList.map((todoList, index) => {
+			return { ...todoList, completed: indexTodo === index };
+		});
+		setTodoList(newTodoList);
+
 		// se cauta todo-ul si se schimba completed=> true
 		// se foloseste map pentru a crea un array nou
 		// set TodoList(newTodoList)
@@ -35,6 +39,7 @@ function TodoList() {
 					key={"todo_" + index}
 					onComplete={handleCompleteTodo}
 					index={index}
+					todo={todo.name}
 				/>
 			))}
 			<AddTodo onAddTodo={handleAddTodo} />
