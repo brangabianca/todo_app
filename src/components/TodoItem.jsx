@@ -1,4 +1,4 @@
-function TodoItem({ name, completed, onCompleteTodo }) {
+function TodoItem({ name, completed, onComplete, index }) {
 	return (
 		<div>
 			<h4>
@@ -7,7 +7,7 @@ function TodoItem({ name, completed, onCompleteTodo }) {
 			<button>Delete</button>
 			<button
 				onClick={() => {
-					onCompleteTodo(completed:true);
+					onComplete(index);
 				}}>
 				Complete
 			</button>
